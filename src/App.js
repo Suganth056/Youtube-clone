@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import NavBar from './Pages/NavBar';
+import HomePage from './Pages/HomePage';
+import VideoPage from './Pages/NextPages/VideoPage';
+import {Routes,Route} from 'react-router-dom'
 
-function App() {
+const App = () => {
+  const [checkNavActive,setNav]=useState(null);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <NavBar 
+      checkNavActive={checkNavActive}
+      setNav={setNav}
+      />
+
+      <Routes>
+        <Route path='/' element={<HomePage  checkNavActive={checkNavActive}/>}>
+
+
+        </Route>
+        
+        <Route path='/video/:categoryId/:videoId' element={<VideoPage/>}>
+
+
+        </Route>
+
+      </Routes>
+
+
+
     </div>
-  );
+    
+  )
 }
 
-export default App;
+export default App
