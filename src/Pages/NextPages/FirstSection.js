@@ -5,7 +5,7 @@ import './FirstSection.css'
 import {API_KEY,valueConverter} from '../../data';
 
 const FirstSection = ({videoId}) => {
-  const [apiData,setApiData]=useState(null);
+  const [apiData,setApiData]=useState("");
   const [channelData,setChannelData]=useState('');
   const [commentData,setCommentData]=useState([]);
 
@@ -16,8 +16,8 @@ const FirstSection = ({videoId}) => {
 
     }
     const fetchChannelDetails=async()=>{
-        const channelDet_URL=`https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=${apiData.snippet.channelId}&key=${API_KEY}`;
-        await fetch(channelDet_URL).then(res=>res.json()).then(data=> setChannelData(data.items[0]));
+        const channelDet_URL=`https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=${apiData.snippet?apiData.snippet.channelId:""}&key=${API_KEY}`;
+        await fetch(channelDet_URL).then(res=>res.json()).then(data=> setChannelData(data.items?data.items[0]:""));
 
         const comment_url=`https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet%2Creplies&maxResults=50&videoId=${videoId}&key=${API_KEY}`
         await fetch(comment_url).then(res=>res.json()).then(data=>setCommentData(data.items));
@@ -27,9 +27,13 @@ const FirstSection = ({videoId}) => {
         fetchVideoData();
            
     },[videoId])
+    
 
     useEffect(()=>{
+      setTimeout(()=>{
         fetchChannelDetails();
+      },2000)
+        
 
     },[apiData])
 

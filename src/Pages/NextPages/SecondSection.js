@@ -35,7 +35,7 @@ const SecondSection = ({categoryId}) => {
                 </Link>
             ))
         
-        :""
+        :"Video Will be Screened Soon"
         }
     </div>
   )

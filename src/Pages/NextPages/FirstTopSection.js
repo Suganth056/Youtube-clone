@@ -22,7 +22,7 @@ const FirstTopSection = ({videoId,apiData,setApiData,channelData,setChannelData}
         </div>
         
         <div className='Subscription-container'>
-            <p className='desc-details'>{apiData?apiData.snippet.title:"I"}</p>
+            <p className='desc-details'>{apiData?apiData.snippet.title:"Sorry Content Currently Unavailable"}</p>
             <p className='view-det'>{apiData?valueConverter(apiData.statistics.viewCount):"No"} views &bull; {apiData?moment(apiData.snippet.publishedAt).fromNow():"A day Ago"}</p>
             <div className='subscribe-div'>
                 <section >

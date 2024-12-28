@@ -37,7 +37,7 @@ const MainPage = ({category,setCategory}) => {
           !dataError?  //Represent whether data is present or not present
           data.map((item,index)=>{
             return(
-                    <div className='card'>
+                    <div className='card' key={index}>
                           <Link className='LinkTag' to={`video/${item.snippet.categoryId}/${item.id}`}>
                               <img src={item.snippet.thumbnails.medium.url} alt="" />
                               <h4>{item.snippet.title}</h4>
