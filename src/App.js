@@ -9,13 +9,12 @@ const App = () => {
   return (
     <div>
       <NavBar 
-      checkNavActive={checkNavActive}
+      checkNavActive={checkNavActive} 
       setNav={setNav}
       />
 
       <Routes>
         <Route path='/' element={<HomePage  checkNavActive={checkNavActive}/>}>
-
 
         </Route>
         

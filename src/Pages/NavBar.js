@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+// import React, { useState } from 'react'
 import './NavBar.css'
 
 import menu from '../Assests/menu.png'
@@ -8,7 +8,7 @@ import uploadBar from '../Assests/upload.png'
 import notificationBar from '../Assests/notification.png'
 import moreBar from '../Assests/more.png'
 import jack from '../Assests/jack.png'
-import { Navigate, useNavigate } from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 
 
 const NavBar = ({checkNavActive,setNav}) => {
